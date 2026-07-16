@@ -15,6 +15,14 @@ jokes={
     "Why do travellers always feel warm? Because of all of their hot spots!"
 }
 
+weather={
+    "Good",
+    "Bad",
+    "Moderate"
+}
+
+
+
 def normalize_input(text):
     return re.sub(r"\s+", " ", text.strip().lower())
 
@@ -61,6 +69,9 @@ def show_help():
     print(Fore.GREEN + "Tell a joke (say 'joke')")
     print(Fore.CYAN + "Type 'exit' or 'bye' to end .\n")
 
+def weather_upd():
+    print(random.choice(weather))
+
 def chat():
     print(Fore.CYAN + "Hello! I'm TravelBot.")
     name=input(Fore.YELLOW + "Your Name ? : ")
@@ -83,6 +94,8 @@ def chat():
         elif "exit" in user_input or "bye" in user_input:
             print(Fore.CYAN + "TravelBot: Safe travels! Goodbye!")
             break
+        elif "weather" in user_input:
+            weather_upd()
         else:
             print(Fore.RED + "TravelBot: Could you rephrase?")
 
